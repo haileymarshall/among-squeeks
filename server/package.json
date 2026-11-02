@@ -1,0 +1,26 @@
+{
+  "name": "among-squeeks-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=.env src/index.ts",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --target=node20 --packages=external --outfile=dist/index.js",
+    "start": "node --env-file-if-exists=.env dist/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "packageManager": "pnpm@11.5.1",
+  "dependencies": {
+    "@colyseus/core": "0.18.19",
+    "@colyseus/schema": "5.0.40",
+    "@colyseus/ws-transport": "0.18.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "esbuild": "0.25.12",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}
