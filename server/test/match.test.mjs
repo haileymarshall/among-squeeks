@@ -92,6 +92,8 @@ await until("the match to end", () => room.state.phase === "ended", 280000);
 console.log(`ended: ${room.state.winner} win. "${room.state.endWhy}"`);
 assert.ok(reveal?.ruggers?.length >= 1, "Ruggers weren't revealed");
 assert.ok(["devs", "ruggers"].includes(room.state.winner));
-await room.leave();
+// A hosting proxy can lose the close, so leave the way the game page does: without waiting for it.
+room.reconnection.enabled = false;
+void room.leave();
 console.log("Match checks passed.");
 process.exit(0);

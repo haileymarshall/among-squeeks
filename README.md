@@ -60,6 +60,7 @@ With the game server running:
 cd server
 pnpm exec tsx test/wheel.test.ts      # checks the real runs and power cuts
 node test/match.test.mjs              # plays a full match against AI hamsters
+node test/two-players.test.mjs        # two clients in one room
 ```
 
 ## Deploy
